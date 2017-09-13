@@ -1,0 +1,40 @@
+﻿<div class="container">
+    <div class="col-md-12">
+        <h1>Car Detail</h1>
+        <form name="form" #f="ngForm" novalidate>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !make.valid }">
+                <label for="make">Make</label>
+                <input type="text" class="form-control" name="make" [(ngModel)]="car.make" #make="ngModel" required />
+                <div *ngIf="f.submitted && !make.valid" class="help-block">Make is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !model.valid }">
+                <label for="model">Model</label>
+                <input type="text" class="form-control" name="model" [(ngModel)]="car.model" #model="ngModel" required />
+                <div *ngIf="f.submitted && !model.valid" class="help-block">Model is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !engine.valid }">
+                <label for="engine">Engine</label>
+                <input type="text" class="form-control" name="engine" [(ngModel)]="car.engine" #engine="ngModel" required />
+                <div *ngIf="f.submitted && !engine.valid" class="help-block">Engine is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !wheels.valid }">
+                <label for="wheels">Wheels</label>
+                <input type="text" class="form-control" name="wheels" [(ngModel)]="car.wheels" #wheels="ngModel" required />
+                <div *ngIf="f.submitted && !wheels.valid" class="help-block">Wheels is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !doors.valid }">
+                <label for="doors">Doors</label>
+                <input type="text" class="form-control" name="doors" [(ngModel)]="car.doors" #doors="ngModel" required />
+                <div *ngIf="f.submitted && !doors.valid" class="help-block">Doors is required</div>
+            </div>
+            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !type.valid }">
+                <label for="type">Type</label>
+                <input type="text" class="form-control" name="type" [(ngModel)]="car.type" #type="ngModel" required />
+                <div *ngIf="f.submitted && !type.valid" class="help-block">Type is required</div>
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="saveCar(car)">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -7,16 +7,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { CarComponent } from './components/car/car.component';
+import { CarDetailComponent } from './components/car/car-detail.component';
+
+import { CarService } from './components/car/car.service';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        CarComponent,
+        CarDetailComponent
     ],
     imports: [
         CommonModule,
@@ -25,10 +27,14 @@ import { CounterComponent } from './components/counter/counter.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'car', component: CarComponent },
+            { path: 'detail/:id', component: CarDetailComponent },
+            { path: 'detail', component: CarDetailComponent },
             { path: '**', redirectTo: 'home' }
         ])
+    ],
+    providers: [
+        CarService
     ]
 })
 export class AppModuleShared {

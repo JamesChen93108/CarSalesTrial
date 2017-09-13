@@ -1,0 +1,39 @@
+﻿<div class="container">
+    <div class="col-md-12">
+        <h1>Car List</h1>
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Make</th>
+                    <th class="text-center">Model</th>
+                    <th class="text-center">Engine</th>
+                    <th class="text-center">Wheels</th>
+                    <th class="text-center">Doors</th>
+                    <th class="text-center">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let car of cars">
+                    <td>{{car.make}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.engine}}</td>
+                    <td>{{car.wheels}}</td>
+                    <td>{{car.doors}}</td>
+                    <td>
+                        <div ngSwitch="{{car.type}}">
+                            <div *ngSwitchCase="'0'">hatchback</div>
+                            <div *ngSwitchCase="'1'">sedan</div>
+                        </div>
+                    </td>
+                    <td>
+                        <a class="btn btn-info" [routerLink]="['/detail', car.id]">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a class="btn btn-successs" [routerLink]="['/detail']"><i class="fa fa-plus fa-2x"></i></a>
+    </div>
+</div>
